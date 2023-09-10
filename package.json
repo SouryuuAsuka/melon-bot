@@ -4,6 +4,8 @@
   "description": "",
   "main": "app.js",
   "scripts": {
+    "lint": "npx eslint . --ext .ts",
+    "build": "npx tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -14,10 +16,13 @@
   "license": "ISC",
   "devDependencies": {
     "@types/node": "^20.6.0",
+    "@types/node-telegram-bot-api": "^0.61.7",
+    "@typescript-eslint/eslint-plugin": "^6.6.0",
+    "@typescript-eslint/parser": "^6.6.0",
+    "eslint": "^8.49.0",
     "typescript": "^5.2.2"
   },
   "dependencies": {
-    "@types/node-telegram-bot-api": "^0.61.7",
     "fastify": "^4.22.2",
     "node-telegram-bot-api": "^0.61.0"
   }
