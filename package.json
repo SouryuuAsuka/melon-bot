@@ -24,6 +24,7 @@
   },
   "dependencies": {
     "fastify": "^4.22.2",
+    "mongoose": "^7.5.0",
     "node-telegram-bot-api": "^0.61.0"
   }
 }
