@@ -7,4 +7,5 @@ const UserSchema = new Schema<IUser>({
   score: { type: Number, default: 0 }
 });
 
-export default mongoose.model('User', UserSchema);
+const UserModel = mongoose.model('User', UserSchema);
+export default UserModel;

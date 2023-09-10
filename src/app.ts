@@ -3,6 +3,8 @@
 import Fastify from 'fastify'
 import TelegramBot from 'node-telegram-bot-api';
 import mongoose from 'mongoose';
+import { join } from 'path';
+import * as fs from 'fs';
 
 const token = process.env.MELON_TELEGRAM_BOT_TOKEN as string;
 const mongoLink = process.env.MELON_MONGODB_URL as string;
@@ -18,6 +20,16 @@ function connect() {
     keepAlive: true,
   });
 }
+const models = join(__dirname, 'src/models');
+
+/**
+ * Expose
+ */
+// Bootstrap models
+fs.readdirSync(models)
+  .filter(file => ~file.search(/^[^.].*\.js$/))
+  .forEach(file => require(join(models, file)));
+
 // константы
 const PORT = 3000;
 const app = Fastify({
