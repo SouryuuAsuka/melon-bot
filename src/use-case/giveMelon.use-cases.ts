@@ -12,11 +12,12 @@ export const giveMelon = async (bot: TelegramBot, callbackQuery: any) => {
   User.findOneAndUpdate({ chatId: post.creatorId }, { $inc: { score: 1 } })
   const text = `Админ передал тебе дыню🍈. Ты молодец!`;
   bot.sendMessage(post.creatorId, text);
+  console.log("data.st - " + JSON.stringify(data.st))
   const status = Array.from(data.st).map((item) => {
     if (item === 't') return true
     else return false
   })
-  console.log(JSON.stringify(status))
+  console.log("status - "+JSON.stringify(status))
   bot.editMessageReplyMarkup({
     inline_keyboard: generateKeyboard(status[0], !status[1])
   }, {
