@@ -10,10 +10,11 @@ export const giveMelon = async (bot: TelegramBot, callbackQuery: any) => {
   const post = await Post.findOne({ keyboardId: msg.message_id })
   if(!post?.creatorId) throw new Error("Пост не найден")
   console.log("post.creatorId - "+post.creatorId)
-  User.updateOne({ chatId: post.creatorId }, { $inc: { score: 1 } })
+  const user = User.findByIdAndUpdate({ chatId: post.creatorId }, { $inc: { score: 1 } })
   .catch((err)=>{
     console.log(err)
   })
+  console.log(user);
   const text = `Админ передал тебе дыню🍈. Ты молодец!`;
   bot.sendMessage(post.creatorId, text);
   console.log("data.st - " + JSON.stringify(data.st))
