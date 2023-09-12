@@ -16,7 +16,7 @@ export const cancelMelon = async (bot: TelegramBot, callbackQuery: any) => {
   bot.editMessageReplyMarkup({
     inline_keyboard: generateKeyboard(status[0], !status[1])
   }, {
-    chat_id: msg.from.id,
+    chat_id: msg.chat.id,
     message_id: msg.message_id
   })
   return true;
