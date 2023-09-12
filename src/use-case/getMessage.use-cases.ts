@@ -18,6 +18,7 @@ export const getMessage = async (bot: TelegramBot, msg: any) => {
   }
 
   const newKeyboard = await bot.sendMessage(botOwner,'',{
+    reply_to_message_id: newMsg.message_id,
     reply_markup: {
       inline_keyboard: generateKeyboard(msg.from.id)
     }
