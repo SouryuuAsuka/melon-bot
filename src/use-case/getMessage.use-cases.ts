@@ -7,7 +7,6 @@ const botOwner = process.env.BOT_OWNER as string;
 
 export const getMessage = async (bot: TelegramBot, msg: any) => {
   const chatId = msg.chat.id;
-  await getMessage(bot, msg);
   //TODO: if(msg.from.id != botOwner)
   const media = getMediaArray(msg);
   let newMsg;
