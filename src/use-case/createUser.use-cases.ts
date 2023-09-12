@@ -1,7 +1,7 @@
 import User from '../model/user.model';
 import TelegramBot from 'node-telegram-bot-api';
 
-export const startCommand = async (bot: TelegramBot, msg: any) => {
+export const createUser = async (bot: TelegramBot, msg: any) => {
   const chatId = msg.chat.id
   User.findOne({ chatId: chatId })
     .then((user) => {

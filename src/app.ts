@@ -8,6 +8,7 @@ const token = process.env.MELON_TELEGRAM_BOT_TOKEN as string;
 const mongoLink = process.env.MELON_MONGODB_URL as string;
 const bot = new TelegramBot(token, { polling: true })
 import { textBot } from './controller/text.controller';
+import { startCommand, statsCommand } from './controller/command.controller';
 import { callbackQueryBot } from './controller/callbackQuery.controller';
 
 function connect() {
@@ -30,6 +31,8 @@ app.listen({ port: PORT }, (err) => {
   if (err) throw err
 })
 
-bot.on('text', textBot(bot));
+bot.on('message', textBot(bot));
+bot.onText(/\/start (.+)/, startCommand(bot));
+bot.onText(/\/statistic (.+)/, statsCommand(bot));
 
 bot.on('callback_query', callbackQueryBot(bot))
