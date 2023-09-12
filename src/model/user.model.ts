@@ -7,4 +7,4 @@ const UserSchema = new Schema<IUser>({
   score: { type: Number, default: 0 }
 });
 
-export default mongoose.model<IUser>('User', UserSchema);
+export default mongoose.model<IUser>('Melon-User', UserSchema);
