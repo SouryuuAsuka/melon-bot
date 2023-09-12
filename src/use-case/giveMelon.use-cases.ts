@@ -13,8 +13,8 @@ export const giveMelon = async (bot: TelegramBot, callbackQuery: any) => {
   const text = `Админ передал тебе дыню🍈. Ты молодец!`;
   bot.sendMessage(post.creatorId, text);
   const status = Array.from(data.st).map((item) => {
-    if (item === '0') return false
-    else return true
+    if (item === 't') return true
+    else return false
   })
   console.log(JSON.stringify(status))
   bot.editMessageReplyMarkup({

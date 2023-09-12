@@ -11,8 +11,8 @@ export const sendPost = async (bot: TelegramBot, callbackQuery: any) => {
   const data = JSON.parse(callbackData);
   const oldPost = await Post.findOne({ keyboardId: msg.message_id });
   const status = Array.from(data.st).map((item) => {
-    if (item === '0') return false
-    else return true
+    if (item === 't') return true
+    else return false
   })
   if (!oldPost?.postId) throw new Error("KeyboardId error");
   const newPost = await bot.copyMessage(mainChatId, chatId, oldPost?.postId);

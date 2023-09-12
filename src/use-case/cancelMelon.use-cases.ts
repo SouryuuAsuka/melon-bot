@@ -8,13 +8,13 @@ export const cancelMelon = async (bot: TelegramBot, callbackQuery: any) => {
   const callbackData = callbackQuery.data ?? '';
   const data = JSON.parse(callbackData);
   const post = await Post.findOne({ keyboardId: msg.message_id })
-  if(!post?.creatorId) throw new Error("Пост не найден")
+  if (!post?.creatorId) throw new Error("Пост не найден")
   User.findOneAndUpdate({ chatId: post.creatorId }, { $inc: { score: -1 } })
   const text = `Админ забрал у тебя дыню... Жизнь жестока...💔`;
   bot.sendMessage(post.creatorId, text);
   const status = Array.from(data.st).map((item) => {
-    if (item === '0') return false
-    else return true
+    if (item === 't') return true
+    else return false
   })
   bot.editMessageReplyMarkup({
     inline_keyboard: generateKeyboard(status[0], !status[1])

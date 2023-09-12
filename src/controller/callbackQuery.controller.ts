@@ -14,8 +14,8 @@ export const callbackQueryBot = function (bot: TelegramBot) {
       const data = JSON.parse(callbackData);
       if (data.act === 'giveMelon') {
         const status = Array.from(data.st).map((item) => {
-          if (item === '0') return false
-          else return true
+          if (item === 't') return true
+          else return false
         })
         if (status[1]) {
           await cancelMelon(bot, callbackQuery);
@@ -30,8 +30,8 @@ export const callbackQueryBot = function (bot: TelegramBot) {
         await cancelDeletePost(bot, callbackQuery);
       } else if (data.act === 'sendPost') {
         const status = Array.from(data.st).map((item) => {
-          if (item === '0') return false
-          else return true
+          if (item === 't') return true
+          else return false
         })
         if (status[0]) {
           await cancelPost(bot, callbackQuery);
