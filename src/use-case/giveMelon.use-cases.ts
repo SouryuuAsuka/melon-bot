@@ -16,6 +16,7 @@ export const giveMelon = async (bot: TelegramBot, callbackQuery: any) => {
     if (item === '0') return false
     else return true
   })
+  console.log(JSON.stringify(status))
   bot.editMessageReplyMarkup({
     inline_keyboard: generateKeyboard(status[0], !status[1])
   }, {
