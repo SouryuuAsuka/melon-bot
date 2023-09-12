@@ -1,5 +1,5 @@
 export default function generateKeyboard(posted: boolean = false, melon: boolean = false) {
-  const status = posted ? 't' : 'f' + melon ? 't' : 'f';
+  const status = (posted ? 't' : 'f') + (melon ? 't' : 'f');
   let melonBtn;
   let postBtn;
   if (melon) {
