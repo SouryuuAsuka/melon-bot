@@ -12,7 +12,7 @@ export const getMessage = async (bot: TelegramBot, msg: any) => {
   const newKeyboard = await bot.sendMessage(botOwner,'Управление постом:',{
     reply_to_message_id: newPost.message_id,
     reply_markup: {
-      inline_keyboard: generateKeyboard(msg.from.id)
+      inline_keyboard: generateKeyboard()
     }
   })
   await Post.create({creatorId: chatId, postId: newPost.message_id, keyboardId: newKeyboard.message_id, ownerId: botOwner})
