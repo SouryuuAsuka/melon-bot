@@ -21,4 +21,5 @@ export const confDeletePost = async (bot: TelegramBot, callbackQuery: any) => {
     const text = "Ошибка при удалении поста";
     bot.sendMessage(post?.ownerId ?? botOwner, text);
   }
+  return true;
 }

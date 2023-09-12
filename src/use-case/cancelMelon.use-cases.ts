@@ -19,4 +19,5 @@ export const cancelMelon = async (bot: TelegramBot, callbackQuery: any) => {
     chat_id: msg.from.id,
     message_id: msg.message_id
   })
+  return true;
 }

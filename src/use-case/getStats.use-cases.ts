@@ -8,4 +8,5 @@ export const getStats = async (bot: TelegramBot, msg: any) => {
     text += (index + 1) + ') ' + user.firstname ?? '' + ' ' + user.lastname ?? '' + ' - ' + user.score + ' динь\n';
   })
   bot.sendMessage(msg.chat.id, text);
+  return true;
 }

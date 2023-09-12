@@ -22,4 +22,5 @@ export const cancelPost = async (bot: TelegramBot, callbackQuery: any) => {
     chat_id: chatId,
     message_id: msg.message_id
   })
+  return true;
 }

@@ -24,4 +24,5 @@ export const startCommand = async (bot: TelegramBot, msg: any) => {
       const text = `Привет!\nПочему-то произошла ошибка при сохранении твоих данных. Пожалуйста, сообщи об этом админу`;
       bot.sendMessage(chatId, text)
     })
+  return true;
 }
