@@ -4,7 +4,6 @@ import TelegramBot from 'node-telegram-bot-api';
 
 export const cancelMelon = async (bot: TelegramBot, callbackQuery: any) => {
   const msg = callbackQuery.message;
-  const chatId = msg?.chat?.id;
   const callbackData = callbackQuery.data ?? '';
   const data = JSON.parse(callbackData);
   User.findOneAndUpdate({ chatId: data.id }, { $inc: { 'score': -1 } })

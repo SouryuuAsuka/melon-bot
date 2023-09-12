@@ -1,7 +1,7 @@
 'use strict';
 
 import Fastify from 'fastify'
-import TelegramBot, { InputMediaBase, InputMediaPhoto, InputMediaVideo } from 'node-telegram-bot-api';
+import TelegramBot from 'node-telegram-bot-api';
 import mongoose from 'mongoose';
 
 const token = process.env.MELON_TELEGRAM_BOT_TOKEN as string;

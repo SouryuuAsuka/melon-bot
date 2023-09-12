@@ -1,5 +1,5 @@
 import User from '../model/user.model';
-import TelegramBot  from 'node-telegram-bot-api';
+import TelegramBot from 'node-telegram-bot-api';
 
 export const startCommand = async (bot: TelegramBot, msg: any) => {
   const chatId = msg.chat.id
