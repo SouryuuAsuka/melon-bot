@@ -9,6 +9,7 @@ export const giveMelon = async (bot: TelegramBot, callbackQuery: any) => {
   const data = JSON.parse(callbackData);
   const post = await Post.findOne({ keyboardId: msg.message_id })
   if(!post?.creatorId) throw new Error("Пост не найден")
+  console.log("post.creatorId - "+post.creatorId)
   User.updateOne({ chatId: post.creatorId }, { $inc: { score: 1 } })
   const text = `Админ передал тебе дыню🍈. Ты молодец!`;
   bot.sendMessage(post.creatorId, text);
