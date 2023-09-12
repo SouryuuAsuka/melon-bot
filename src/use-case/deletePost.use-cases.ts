@@ -5,9 +5,9 @@ const botOwner = process.env.BOT_OWNER as string;
 
 export const deletePost = async (bot: TelegramBot, callbackQuery: any) => {
   const msg = callbackQuery.message;
-  const post = await Post.findOneAndDelete({ keyboardId: msg.message_id })
+  const post = await Post.findOne({ keyboardId: msg.message_id })
   if (post?.postId && post?.keyboardId && post.ownerId && post.creatorId) {
-    bot.sendMessage(botOwner, '', {
+    bot.sendMessage(botOwner, 'Че, реально удаляешь?(\nТогда он удалится и с самого канала', {
       reply_markup: {
         inline_keyboard: [[
           {
