@@ -22,6 +22,6 @@ export const sendPost = async (bot: TelegramBot, callbackQuery: any) => {
     chat_id: chatId,
     message_id: msg.message_id
   })
-  await Post.findOneAndUpdate({ keyboardId: msg.message_id }, { inChanelPostId: newPost });
+  await Post.findOneAndUpdate({ keyboardId: msg.message_id }, { inChanelPostId: newPost.message_id });
   return true;
 }
