@@ -30,6 +30,8 @@ app.listen({ port: PORT }, (err) => {
   if (err) throw err
 })
 
-bot.on('message', textBot(bot));
+bot.on('text', textBot(bot));
+bot.on('photo', textBot(bot));
+bot.on('video', textBot(bot));
 
 bot.on('callback_query', callbackQueryBot(bot))

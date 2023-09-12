@@ -9,8 +9,7 @@ export const cancelMelon = async (bot: TelegramBot, callbackQuery: any) => {
   const data = JSON.parse(callbackData);
   const post = await Post.findOne({ keyboardId: msg.message_id })
   if (!post?.creatorId) throw new Error("Пост не найден")
-  console.log("post.creatorId - "+post.creatorId)
-  User.updateOne({ chatId: post.creatorId }, { $inc: { score: -1 } })
+  await User.updateOne({ chatId: post.creatorId }, { $inc: { score: -1 } })
   const text = `Админ забрал у тебя дыню... Жизнь жестока...💔`;
   bot.sendMessage(post.creatorId, text);
   const status = Array.from(data.st).map((item) => {
