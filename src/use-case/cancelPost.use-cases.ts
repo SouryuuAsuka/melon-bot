@@ -9,7 +9,7 @@ export const cancelPost = async (bot: TelegramBot, callbackQuery: any) => {
   const chatId = msg?.chat?.id;
   const callbackData = callbackQuery.data ?? '';
   const data = JSON.parse(callbackData);
-  const oldPost = await Post.findOneAndUpdate({ keyboardId: msg.message_id }, { $unset: { "inChanelPostId": 1 } });
+  const oldPost = await Post.findOneAndUpdate({ keyboardId: msg.message_id }, { $unset: { inChanelPostId: 1 } });
   const status = Array.from(data.st).map((item) => {
     if (item === 't') return true
     else return false
